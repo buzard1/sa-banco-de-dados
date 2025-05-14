@@ -195,6 +195,33 @@ INSERT INTO `servico_produto` VALUES (3,2,37),(1,3,12),(5,3,28),(2,3,36),(3,4,30
 UNLOCK TABLES;
 
 --
+-- Table structure for table `suporte`
+--
+
+DROP TABLE IF EXISTS `suporte`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `suporte` (
+  `id_problema` int NOT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `desc_problema` varchar(1000) DEFAULT NULL,
+  `urgencia` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id_problema`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `suporte`
+--
+
+LOCK TABLES `suporte` WRITE;
+/*!40000 ALTER TABLE `suporte` DISABLE KEYS */;
+INSERT INTO `suporte` VALUES (1,'Ana Souza','ana.souza@email.com','Erro ao cadastrar nova ordem de serviço para conserto de celular.','media'),(2,'Carlos Pereira','carlos.pereira@email.com','Sistema não reconhece o número de série de alguns aparelhos.','alta'),(3,'Mariana Lima','mariana.lima@email.com','Tela de consulta de ordens de serviço está travando.','media'),(4,'João Silva','joao.silva@email.com','Não consigo gerar o PDF do orçamento técnico.','baixa'),(5,'Fernanda Rocha','fernanda.rocha@email.com','Sistema não salva alterações no status de aparelhos.','alta'),(6,'Lucas Oliveira','lucas.oliveira@email.com','Problema ao anexar foto do equipamento na ordem de serviço.','media'),(7,'Patrícia Dias','patricia.dias@email.com','Erro 500 ao tentar abrir ordens finalizadas.','alta'),(8,'Bruno Almeida','bruno.almeida@email.com','O botão \"Novo Cliente\" não está funcionando.','media'),(9,'Camila Santos','camila.santos@email.com','Sistema está muito lento na tela de ordens pendentes.','baixa'),(10,'Rafael Costa','rafael.costa@email.com','Relatório de ordens do dia não está gerando corretamente.','media'),(11,'Juliana Freitas','juliana.freitas@email.com','Erro ao filtrar ordens por data de entrada.','baixa'),(12,'Marcelo Tavares','marcelo.tavares@email.com','Sistema não envia SMS para clientes após finalização.','alta'),(13,'Vanessa Martins','vanessa.martins@email.com','Perdi acesso ao módulo de cadastro de técnicos.','alta'),(14,'Eduardo Nunes','eduardo.nunes@email.com','Sistema não está calculando corretamente o valor total do serviço.','media'),(15,'Bruna Oliveira','bruna.oliveira@email.com','Não consigo inserir o modelo \"Galaxy A54\" na OS.','media'),(16,'Tiago Ramos','tiago.ramos@email.com','O sistema fecha sozinho ao imprimir etiquetas.','alta'),(17,'Letícia Castro','leticia.castro@email.com','Clientes estão sumindo da lista de busca rápida.','alta'),(18,'Felipe Moura','felipe.moura@email.com','Problema ao importar backup de dados.','alta'),(19,'Roberta Mendes','roberta.mendes@email.com','Erro ao tentar cadastrar um tablet da Multilaser.','baixa'),(20,'Gustavo Lima','gustavo.lima@email.com','Sistema mostra aparelhos entregues como \"em reparo\".','media'),(21,'Isabela Antunes','isabela.antunes@email.com','Histórico de reparos não aparece completo para alguns clientes.','media'),(22,'Rodrigo Pires','rodrigo.pires@email.com','Aplicativo de técnico não sincroniza com a central.','alta'),(23,'Sandra Cardoso','sandra.cardoso@email.com','Problema ao gerar nota de recebimento.','media'),(24,'Murilo Dantas','murilo.dantas@email.com','Sistema não permite cadastrar um novo equipamento.','media'),(25,'Aline Farias','aline.farias@email.com','Falha ao adicionar acessórios na OS.','baixa'),(26,'Cláudio Borges','claudio.borges@email.com','Mensagem de erro ao excluir um orçamento recusado.','baixa'),(27,'Beatriz Silva','beatriz.silva@email.com','Erro de sincronização com a base de dados.','alta'),(28,'Diego Cunha','diego.cunha@email.com','Campos de contato do cliente estão sumindo.','media'),(29,'Natália Luz','natalia.luz@email.com','Sistema fecha ao tentar editar um cliente.','alta'),(30,'Henrique Teixeira','henrique.teixeira@email.com','Problemas ao aplicar desconto em serviços.','media'),(31,'Larissa Moraes','larissa.moraes@email.com','Ícones do sistema aparecem cortados na tela.','baixa'),(32,'Renato Vieira','renato.vieira@email.com','Erro ao exportar relatórios mensais.','media'),(33,'Mônica Rezende','monica.rezende@email.com','Sistema apresenta lentidão ao filtrar por marca.','baixa'),(34,'André Figueira','andre.figueira@email.com','Equipamento novo não está disponível para seleção.','media'),(35,'Tatiane Ribeiro','tatiane.ribeiro@email.com','Erro ao duplicar ordem de serviço para o mesmo cliente.','media'),(36,'Gabriel Luz','gabriel.luz@email.com','O campo \"Defeito Relatado\" não aceita acentuação.','baixa'),(37,'Paula Menezes','paula.menezes@email.com','Sistema bloqueia a edição da OS mesmo em status \"aberto\".','alta'),(38,'Rogério Fonseca','rogerio.fonseca@email.com','Botão \"Finalizar OS\" fica desabilitado aleatoriamente.','alta'),(39,'Tatiana Nobre','tatiana.nobre@email.com','Sistema imprime etiquetas com nome cortado.','baixa'),(40,'Bruno Barros','bruno.barros@email.com','Erro ao cadastrar assistência terceirizada.','media'),(41,'Yasmin Freire','yasmin.freire@email.com','Problemas ao atualizar status via aplicativo.','alta'),(42,'Jéssica Prado','jessica.prado@email.com','Aparelhos aparecem duplicados na tela de ordens.','media'),(43,'Vinícius Duarte','vinicius.duarte@email.com','Problema no campo de busca por CPF.','media'),(44,'Larissa Gonçalves','larissa.goncalves@email.com','Impressora não está sendo reconhecida pelo sistema.','alta'),(45,'Renan Rocha','renan.rocha@email.com','Falha ao atualizar o status para \"aguardando peça\".','media'),(46,'Débora Lima','debora.lima@email.com','Erro de permissão ao acessar relatórios.','baixa'),(47,'Fábio Sanches','fabio.sanches@email.com','Sistema não permite editar a descrição do defeito.','media'),(48,'Tainá Lopes','taina.lopes@email.com','Lista de peças não está aparecendo corretamente.','alta'),(49,'Vitor Amorim','vitor.amorim@email.com','Sistema reinicia após login de técnico.','alta'),(50,'Priscila Gama','priscila.gama@email.com','Ordem de serviço some após salvar rascunho.','alta'),(51,'Rafael Nery','rafael.nery@email.com','O status da ordem não atualiza no painel geral.','media'),(52,'Nicole Barreto','nicole.barreto@email.com','Não consigo adicionar uma observação técnica.','media'),(53,'César Andrade','cesar.andrade@email.com','Campo de data está com formatação incorreta.','baixa'),(54,'Tatiane Souza','tatiane.souza@email.com','Erro ao gerar ordem para um smartwatch.','media'),(55,'Robson Braga','robson.braga@email.com','Não consigo reabrir ordem já finalizada.','alta'),(56,'Melissa Rezende','melissa.rezende@email.com','Sistema travando ao salvar cliente novo.','media'),(57,'Gisele Bernardes','gisele.bernardes@email.com','Erro no campo de marca do aparelho.','baixa'),(58,'Cauê Moreira','caue.moreira@email.com','Aplicativo móvel fecha ao tentar tirar foto.','alta'),(59,'Marcos Carvalho','marcosc@email.com','Celular não entra no modo recovery','media'),(60,'Lúcia Rocha','lucia@email.com','Problema com tela piscando aleatoriamente','alta');
+/*!40000 ALTER TABLE `suporte` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `usuario`
 --
 
@@ -230,4 +257,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-13 16:28:57
+-- Dump completed on 2025-05-14 16:33:12
