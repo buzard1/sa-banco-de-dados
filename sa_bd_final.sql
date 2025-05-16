@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
 --
--- Host: localhost    Database: sa_matheusanjos
+-- Host: localhost    Database: teste
 -- ------------------------------------------------------
 -- Server version	8.0.40
 
@@ -167,6 +167,36 @@ INSERT INTO `produto` VALUES (1,'Display completo',136.22,3,56),(2,'Câmera fron
 UNLOCK TABLES;
 
 --
+-- Table structure for table `recover_senha`
+--
+
+DROP TABLE IF EXISTS `recover_senha`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `recover_senha` (
+  `id_recover` int NOT NULL AUTO_INCREMENT,
+  `id_usuario` int NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `data_criacao` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `data_expiracao` datetime NOT NULL,
+  `utilizado` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id_recover`),
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `recover_senha_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `recover_senha`
+--
+
+LOCK TABLES `recover_senha` WRITE;
+/*!40000 ALTER TABLE `recover_senha` DISABLE KEYS */;
+INSERT INTO `recover_senha` VALUES (61,1,'token_a1b2c3d4e5f6g7h8i9j0','2025-05-05 14:13:42','2025-05-06 14:13:42',0),(62,2,'token_j2k3l4m5n6o7p8q9r0s1','2025-04-30 14:13:42','2025-05-01 14:13:42',1),(63,3,'token_s3t4u5v6w7x8y9z0a1b2','2025-04-25 14:13:42','2025-04-26 14:13:42',0),(64,4,'token_c4d5e6f7g8h9i0j1k2l3','2025-05-10 14:13:42','2025-05-11 14:13:42',1),(65,5,'token_m5n6o7p8q9r0s1t2u3v4','2025-05-03 14:13:42','2025-05-04 14:13:42',0),(66,6,'token_w6x7y8z9a0b1c2d3e4f5','2025-04-27 14:13:42','2025-04-28 14:13:42',0),(67,7,'token_g7h8i9j0k1l2m3n4o5p6','2025-04-20 14:13:42','2025-04-21 14:13:42',1),(68,8,'token_q8r9s0t1u2v3w4x5y6z7','2025-05-13 14:13:42','2025-05-14 14:13:42',0),(69,9,'token_a9b0c1d2e3f4g5h6i7j8','2025-05-08 14:13:42','2025-05-09 14:13:42',1),(70,10,'token_k0l1m2n3o4p5q6r7s8t9','2025-04-23 14:13:42','2025-04-24 14:13:42',0),(71,11,'token_u1v2w3x4y5z6a7b8c9d0','2025-05-06 14:13:42','2025-05-07 14:13:42',0),(72,12,'token_e2f3g4h5i6j7k8l9m0n1','2025-04-28 14:13:42','2025-04-29 14:13:42',1),(73,13,'token_o3p4q5r6s7t8u9v0w1x2','2025-05-02 14:13:42','2025-05-03 14:13:42',0),(74,14,'token_y4z5a6b7c8d9e0f1g2h3','2025-05-12 14:13:42','2025-05-13 14:13:42',0),(75,15,'token_i5j6k7l8m9n0o1p2q3r4','2025-04-26 14:13:42','2025-04-27 14:13:42',1),(76,16,'token_s6t7u8v9w0x1y2z3a4b5','2025-04-17 14:13:42','2025-04-18 14:13:42',0),(77,17,'token_c7d8e9f0g1h2i3j4k5l6','2025-05-09 14:13:42','2025-05-10 14:13:42',0),(78,18,'token_m8n9o0p1q2r3s4t5u6v7','2025-04-24 14:13:42','2025-04-25 14:13:42',1),(79,19,'token_w9x0y1z2a3b4c5d6e7f8','2025-05-07 14:13:42','2025-05-08 14:13:42',0),(80,20,'token_g0h1i2j3k4l5m6n7o8p9','2025-05-04 14:13:42','2025-05-05 14:13:42',0),(81,21,'token_q1r2s3t4u5v6w7x8y9z0','2025-04-15 14:13:42','2025-04-16 14:13:42',1),(82,22,'token_a2b3c4d5e6f7g8h9i0j1','2025-04-29 14:13:42','2025-04-30 14:13:42',0),(83,23,'token_k3l4m5n6o7p8q9r0s1t2','2025-04-22 14:13:42','2025-04-23 14:13:42',0),(84,24,'token_u4v5w6x7y8z9a0b1c2d3','2025-05-01 14:13:42','2025-05-02 14:13:42',1),(85,25,'token_e5f6g7h8i9j0k1l2m3n4','2025-05-14 14:13:42','2025-05-15 14:13:42',0),(86,26,'token_o6p7q8r9s0t1u2v3w4x5','2025-04-18 14:13:42','2025-04-19 14:13:42',0),(87,27,'token_y7z8a9b0c1d2e3f4g5h6','2025-04-21 14:13:42','2025-04-22 14:13:42',1),(88,28,'token_i8j9k0l1m2n3o4p5q6r7','2025-05-11 14:13:42','2025-05-12 14:13:42',0),(89,29,'token_s9t0u1v2w3x4y5z6a7b8','2025-04-19 14:13:42','2025-04-20 14:13:42',1),(90,30,'token_c0d1e2f3g4h5i6j7k8l9','2025-04-16 14:13:42','2025-04-17 14:13:42',0),(91,31,'token_m1n2o3p4q5r6s7t8u9v0','2025-05-05 14:13:42','2025-05-06 14:13:42',0),(92,32,'token_w2x3y4z5a6b7c8d9e0f1','2025-05-03 14:13:42','2025-05-04 14:13:42',1),(93,33,'token_g3h4i5j6k7l8m9n0o1p2','2025-04-25 14:13:42','2025-04-26 14:13:42',0),(94,34,'token_q4r5s6t7u8v9w0x1y2z3','2025-05-08 14:13:42','2025-05-09 14:13:42',0),(95,35,'token_a5b6c7d8e9f0g1h2i3j4','2025-04-27 14:13:42','2025-04-28 14:13:42',1),(96,36,'token_k6l7m8n9o0p1q2r3s4t5','2025-05-12 14:13:42','2025-05-13 14:13:42',0),(97,37,'token_u7v8w9x0y1z2a3b4c5d6','2025-05-06 14:13:42','2025-05-07 14:13:42',0),(98,38,'token_e8f9g0h1i2j3k4l5m6n7','2025-04-30 14:13:42','2025-05-01 14:13:42',1),(99,39,'token_o9p0q1r2s3t4u5v6w7x8','2025-04-23 14:13:42','2025-04-24 14:13:42',0),(100,40,'token_y0z1a2b3c4d5e6f7g8h9','2025-05-10 14:13:42','2025-05-11 14:13:42',0),(101,41,'token_i1j2k3l4m5n6o7p8q9r0','2025-05-04 14:13:42','2025-05-05 14:13:42',1),(102,42,'token_s2t3u4v5w6x7y8z9a0b1','2025-04-29 14:13:42','2025-04-30 14:13:42',0),(103,43,'token_c3d4e5f6g7h8i9j0k1l2','2025-04-26 14:13:42','2025-04-27 14:13:42',0),(104,44,'token_m4n5o6p7q8r9s0t1u2v3','2025-04-20 14:13:42','2025-04-21 14:13:42',1),(105,45,'token_w5x6y7z8a9b0c1d2e3f4','2025-05-02 14:13:42','2025-05-03 14:13:42',0),(106,46,'token_g6h7i8j9k0l1m2n3o4p5','2025-05-13 14:13:42','2025-05-14 14:13:42',0),(107,47,'token_q7r8s9t0u1v2w3x4y5z6','2025-04-15 14:13:42','2025-04-16 14:13:42',1),(108,48,'token_a8b9c0d1e2f3g4h5i6j7','2025-05-09 14:13:42','2025-05-10 14:13:42',0),(109,49,'token_k9l0m1n2o3p4q5r6s7t8','2025-04-28 14:13:42','2025-04-29 14:13:42',0),(110,50,'token_u0v1w2x3y4z5a6b7c8d9','2025-04-24 14:13:42','2025-04-25 14:13:42',1),(111,51,'token_e1f2g3h4i5j6k7l8m9n0','2025-05-01 14:13:42','2025-05-02 14:13:42',0),(112,52,'token_o2p3q4r5s6t7u8v9w0x1','2025-05-07 14:13:42','2025-05-08 14:13:42',0),(113,53,'token_y3z4a5b6c7d8e9f0g1h2','2025-04-22 14:13:42','2025-04-23 14:13:42',1),(114,54,'token_i4j5k6l7m8n9o0p1q2r3','2025-05-11 14:13:42','2025-05-12 14:13:42',0),(115,55,'token_s5t6u7v8w9x0y1z2a3b4','2025-04-18 14:13:42','2025-04-19 14:13:42',0),(116,56,'token_c6d7e8f9g0h1i2j3k4l5','2025-05-03 14:13:42','2025-05-04 14:13:42',1),(117,57,'token_m7n8o9p0q1r2s3t4u5v6','2025-04-27 14:13:42','2025-04-28 14:13:42',0),(118,58,'token_w8x9y0z1a2b3c4d5e6f7','2025-05-14 14:13:42','2025-05-15 14:13:42',0),(119,59,'token_g9h0i1j2k3l4m5n6o7p8','2025-04-25 14:13:42','2025-04-26 14:13:42',1),(120,60,'token_q0r1s2t3u4v5w6x7y8z9','2025-05-06 14:13:42','2025-05-07 14:13:42',0);
+/*!40000 ALTER TABLE `recover_senha` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `servico_produto`
 --
 
@@ -192,33 +222,6 @@ LOCK TABLES `servico_produto` WRITE;
 /*!40000 ALTER TABLE `servico_produto` DISABLE KEYS */;
 INSERT INTO `servico_produto` VALUES (3,2,37),(1,3,12),(5,3,28),(2,3,36),(3,4,30),(2,4,40),(3,6,39),(5,7,17),(5,7,19),(2,7,43),(5,9,54),(2,10,11),(4,10,34),(2,12,29),(4,15,23),(5,16,6),(3,16,7),(4,17,2),(1,17,57),(2,18,9),(2,18,30),(2,18,56),(4,19,3),(2,19,5),(5,19,9),(1,19,38),(2,20,31),(5,20,60),(4,21,20),(4,22,5),(2,23,2),(1,24,25),(3,24,45),(5,25,4),(5,26,18),(1,26,26),(1,27,17),(2,27,26),(2,28,3),(4,28,50),(2,30,16),(4,30,33),(3,32,54),(3,33,48),(5,33,49),(3,33,53),(1,34,58),(3,35,19),(2,35,27),(5,35,34),(4,35,46),(4,36,6),(3,36,41),(2,37,14),(3,37,22),(2,38,32),(4,40,49),(4,41,1),(5,41,13),(1,41,14),(2,41,33),(4,41,43),(5,42,10),(4,42,23),(3,43,29),(2,43,60),(2,45,51),(2,45,52),(3,46,8),(3,46,13),(4,48,18),(2,48,35),(4,48,47),(3,52,24),(4,53,44),(5,55,8),(5,55,31),(2,55,45),(2,55,52),(1,56,46),(4,57,25),(4,57,35),(2,59,21),(3,59,42),(4,59,44),(3,59,53),(2,59,55),(1,59,58),(5,59,59),(3,60,11),(1,60,15),(2,60,48);
 /*!40000 ALTER TABLE `servico_produto` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `suporte`
---
-
-DROP TABLE IF EXISTS `suporte`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `suporte` (
-  `id_problema` int NOT NULL,
-  `nome` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `desc_problema` varchar(1000) DEFAULT NULL,
-  `urgencia` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id_problema`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `suporte`
---
-
-LOCK TABLES `suporte` WRITE;
-/*!40000 ALTER TABLE `suporte` DISABLE KEYS */;
-INSERT INTO `suporte` VALUES (1,'Ana Souza','ana.souza@email.com','Erro ao cadastrar nova ordem de serviço para conserto de celular.','media'),(2,'Carlos Pereira','carlos.pereira@email.com','Sistema não reconhece o número de série de alguns aparelhos.','alta'),(3,'Mariana Lima','mariana.lima@email.com','Tela de consulta de ordens de serviço está travando.','media'),(4,'João Silva','joao.silva@email.com','Não consigo gerar o PDF do orçamento técnico.','baixa'),(5,'Fernanda Rocha','fernanda.rocha@email.com','Sistema não salva alterações no status de aparelhos.','alta'),(6,'Lucas Oliveira','lucas.oliveira@email.com','Problema ao anexar foto do equipamento na ordem de serviço.','media'),(7,'Patrícia Dias','patricia.dias@email.com','Erro 500 ao tentar abrir ordens finalizadas.','alta'),(8,'Bruno Almeida','bruno.almeida@email.com','O botão \"Novo Cliente\" não está funcionando.','media'),(9,'Camila Santos','camila.santos@email.com','Sistema está muito lento na tela de ordens pendentes.','baixa'),(10,'Rafael Costa','rafael.costa@email.com','Relatório de ordens do dia não está gerando corretamente.','media'),(11,'Juliana Freitas','juliana.freitas@email.com','Erro ao filtrar ordens por data de entrada.','baixa'),(12,'Marcelo Tavares','marcelo.tavares@email.com','Sistema não envia SMS para clientes após finalização.','alta'),(13,'Vanessa Martins','vanessa.martins@email.com','Perdi acesso ao módulo de cadastro de técnicos.','alta'),(14,'Eduardo Nunes','eduardo.nunes@email.com','Sistema não está calculando corretamente o valor total do serviço.','media'),(15,'Bruna Oliveira','bruna.oliveira@email.com','Não consigo inserir o modelo \"Galaxy A54\" na OS.','media'),(16,'Tiago Ramos','tiago.ramos@email.com','O sistema fecha sozinho ao imprimir etiquetas.','alta'),(17,'Letícia Castro','leticia.castro@email.com','Clientes estão sumindo da lista de busca rápida.','alta'),(18,'Felipe Moura','felipe.moura@email.com','Problema ao importar backup de dados.','alta'),(19,'Roberta Mendes','roberta.mendes@email.com','Erro ao tentar cadastrar um tablet da Multilaser.','baixa'),(20,'Gustavo Lima','gustavo.lima@email.com','Sistema mostra aparelhos entregues como \"em reparo\".','media'),(21,'Isabela Antunes','isabela.antunes@email.com','Histórico de reparos não aparece completo para alguns clientes.','media'),(22,'Rodrigo Pires','rodrigo.pires@email.com','Aplicativo de técnico não sincroniza com a central.','alta'),(23,'Sandra Cardoso','sandra.cardoso@email.com','Problema ao gerar nota de recebimento.','media'),(24,'Murilo Dantas','murilo.dantas@email.com','Sistema não permite cadastrar um novo equipamento.','media'),(25,'Aline Farias','aline.farias@email.com','Falha ao adicionar acessórios na OS.','baixa'),(26,'Cláudio Borges','claudio.borges@email.com','Mensagem de erro ao excluir um orçamento recusado.','baixa'),(27,'Beatriz Silva','beatriz.silva@email.com','Erro de sincronização com a base de dados.','alta'),(28,'Diego Cunha','diego.cunha@email.com','Campos de contato do cliente estão sumindo.','media'),(29,'Natália Luz','natalia.luz@email.com','Sistema fecha ao tentar editar um cliente.','alta'),(30,'Henrique Teixeira','henrique.teixeira@email.com','Problemas ao aplicar desconto em serviços.','media'),(31,'Larissa Moraes','larissa.moraes@email.com','Ícones do sistema aparecem cortados na tela.','baixa'),(32,'Renato Vieira','renato.vieira@email.com','Erro ao exportar relatórios mensais.','media'),(33,'Mônica Rezende','monica.rezende@email.com','Sistema apresenta lentidão ao filtrar por marca.','baixa'),(34,'André Figueira','andre.figueira@email.com','Equipamento novo não está disponível para seleção.','media'),(35,'Tatiane Ribeiro','tatiane.ribeiro@email.com','Erro ao duplicar ordem de serviço para o mesmo cliente.','media'),(36,'Gabriel Luz','gabriel.luz@email.com','O campo \"Defeito Relatado\" não aceita acentuação.','baixa'),(37,'Paula Menezes','paula.menezes@email.com','Sistema bloqueia a edição da OS mesmo em status \"aberto\".','alta'),(38,'Rogério Fonseca','rogerio.fonseca@email.com','Botão \"Finalizar OS\" fica desabilitado aleatoriamente.','alta'),(39,'Tatiana Nobre','tatiana.nobre@email.com','Sistema imprime etiquetas com nome cortado.','baixa'),(40,'Bruno Barros','bruno.barros@email.com','Erro ao cadastrar assistência terceirizada.','media'),(41,'Yasmin Freire','yasmin.freire@email.com','Problemas ao atualizar status via aplicativo.','alta'),(42,'Jéssica Prado','jessica.prado@email.com','Aparelhos aparecem duplicados na tela de ordens.','media'),(43,'Vinícius Duarte','vinicius.duarte@email.com','Problema no campo de busca por CPF.','media'),(44,'Larissa Gonçalves','larissa.goncalves@email.com','Impressora não está sendo reconhecida pelo sistema.','alta'),(45,'Renan Rocha','renan.rocha@email.com','Falha ao atualizar o status para \"aguardando peça\".','media'),(46,'Débora Lima','debora.lima@email.com','Erro de permissão ao acessar relatórios.','baixa'),(47,'Fábio Sanches','fabio.sanches@email.com','Sistema não permite editar a descrição do defeito.','media'),(48,'Tainá Lopes','taina.lopes@email.com','Lista de peças não está aparecendo corretamente.','alta'),(49,'Vitor Amorim','vitor.amorim@email.com','Sistema reinicia após login de técnico.','alta'),(50,'Priscila Gama','priscila.gama@email.com','Ordem de serviço some após salvar rascunho.','alta'),(51,'Rafael Nery','rafael.nery@email.com','O status da ordem não atualiza no painel geral.','media'),(52,'Nicole Barreto','nicole.barreto@email.com','Não consigo adicionar uma observação técnica.','media'),(53,'César Andrade','cesar.andrade@email.com','Campo de data está com formatação incorreta.','baixa'),(54,'Tatiane Souza','tatiane.souza@email.com','Erro ao gerar ordem para um smartwatch.','media'),(55,'Robson Braga','robson.braga@email.com','Não consigo reabrir ordem já finalizada.','alta'),(56,'Melissa Rezende','melissa.rezende@email.com','Sistema travando ao salvar cliente novo.','media'),(57,'Gisele Bernardes','gisele.bernardes@email.com','Erro no campo de marca do aparelho.','baixa'),(58,'Cauê Moreira','caue.moreira@email.com','Aplicativo móvel fecha ao tentar tirar foto.','alta'),(59,'Marcos Carvalho','marcosc@email.com','Celular não entra no modo recovery','media'),(60,'Lúcia Rocha','lucia@email.com','Problema com tela piscando aleatoriamente','alta');
-/*!40000 ALTER TABLE `suporte` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -257,4 +260,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-14 16:33:12
+-- Dump completed on 2025-05-16 14:46:52
